@@ -55,9 +55,22 @@
             text:"5......"
             background_color:(0,1,1,1)
             on_press:root.indexNo(4)
-        Button:
-            id:Play
-            text:"Play"
-            background_color:(0,0,1,1)
-            on_press:root.playSong()
+
+        BoxLayout:
+            spacing:5
+            Button:
+                id:Pause
+                text:"Pause"
+                background_color:(0,0,1,1)
+                on_press:root.pauseSong()
+            Button:
+                id:Play
+                text:"Play"
+                background_color:(0,0,1,1)
+                on_press:root.playSong()
+            Button:
+                id:Pause
+                text:"Resume"
+                background_color:(0,0,1,1)
+                on_press:root.resumeSong()
 

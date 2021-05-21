@@ -10,9 +10,10 @@ from youtube_search import YoutubeSearch
 from pytube import YouTube
 import moviepy.editor
 import os
+from pygame import mixer
 
-Window.clearcolor = (0, 0, 0, 1)
-Window.size = (500, 640)
+Window.clearcolor = (157/255, 157/255, 157/255, 1)
+Window.size = (400, 640)
 
 Builder.load_file('box.kv')
 
@@ -25,6 +26,7 @@ class MainLayout(Widget):
         self.path = "D:\\Python programs\\Song_downloads"
         self.url = ""
         self.results_filtered = dict()
+        mixer.init()
 
     def clear(self):
         self.ids.UserQuery.text = ""
@@ -72,7 +74,17 @@ class MainLayout(Widget):
         video = moviepy.editor.VideoFileClip(self.path + "\\" + self.video_title[self.playIndex] + ".mp4")
         audio = video.audio
         audio.write_audiofile(self.path + "\\" + self.video_title[self.playIndex] + ".mp3")
-        os.startfile(self.path + "\\" + self.video_title[self.playIndex] + ".mp3")
+        mixer.music.load(self.path + "\\" + self.video_title[self.playIndex] + ".mp3")
+        # Setting the volume
+        mixer.music.set_volume(0.7)
+
+        # Start playing the song
+        mixer.music.play()
+    def pauseSong(self):
+        mixer.music.pause()
+
+    def resumeSong(self):
+        mixer.music.unpause()
 
 
 
