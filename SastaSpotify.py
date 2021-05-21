@@ -33,7 +33,9 @@ class MainLayout(Widget):
         self.ids.result3.text = ""
         self.ids.result4.text = ""
         self.ids.result5.text = ""
-
+        self.video_title = list()
+        self.results_filtered = dict()
+        self.url = ""
 
     def show_result(self):
         a = 0
@@ -71,6 +73,7 @@ class MainLayout(Widget):
         audio = video.audio
         audio.write_audiofile(self.path + "\\" + self.video_title[self.playIndex] + ".mp3")
         os.startfile(self.path + "\\" + self.video_title[self.playIndex] + ".mp3")
+
 
 
 class SastaSpotify(App):
