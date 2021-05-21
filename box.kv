@@ -1,0 +1,63 @@
+<MainLayout>
+    BoxLayout:
+        orientation:"vertical"
+        size:root.width,root.height
+        spacing:'10'
+        padding:25
+
+        BoxLayout:
+            spacing:10
+            TextInput:
+                id:UserQuery
+                text:''
+                halign:'center'
+                font_size:42
+                multiline:False
+                size_hint:(1,1)
+            Button:
+                id:clear
+                text:"x"
+                font_size:36
+                spacing:10
+                size_hint:(0.1,1)
+                background_color:(1,1,1,1)
+                on_press:root.clear()
+
+
+        Button:
+            id:search
+            text:"Search"
+            background_color:(0,0,1,1)
+            on_press:root.show_result()
+        Button:
+            id:result1
+            text:"1......"
+            background_color:(0,1,1,1)
+            on_press:root.indexNo(0)
+        Button:
+            id:result2
+            text:"2......"
+            background_color:(0,1,1,1)
+            on_press:root.indexNo(1)
+
+        Button:
+            id:result3
+            text:"3......"
+            background_color:(0,1,1,1)
+            on_press:root.indexNo(2)
+        Button:
+            id:result4
+            text:"4......"
+            background_color:(0,1,1,1)
+            on_press:root.indexNo(3)
+        Button:
+            id:result5
+            text:"5......"
+            background_color:(0,1,1,1)
+            on_press:root.indexNo(4)
+        Button:
+            id:Play
+            text:"Play"
+            background_color:(0,0,1,1)
+            on_press:root.playSong()
+
